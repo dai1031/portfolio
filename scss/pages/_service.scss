@@ -1,0 +1,253 @@
+@use "../variable/import" as imp;
+
+// service
+.service-kv{
+    height: 420px;
+    background: url('../img/service__kv-sp.svg') center/cover;
+    
+}
+
+.service-guide{
+    max-width: 1200px;
+    margin: 0 auto;
+    @include imp.flex();
+    margin-top: 64px;
+    @include imp.mq(tab){
+       flex-direction: column;
+       align-items: center;
+    }
+    &__item{
+        position: relative; 
+        &+&{ 
+            margin-left: 24px;   
+            @include imp.mq(tab){
+            margin-left: 0;
+            margin-top: 24px;
+            }
+        }
+    }
+    &__text{
+        position: absolute;
+        top:24px;
+        left:24px;
+        font-size: 24px;
+        @include imp.mq(tab){
+            margin-left: 0;
+            margin-top: 24px;
+            font-size: 18px;
+            white-space: nowrap;
+        }
+    }
+
+}
+
+.service-concept{
+    padding: 104px;
+    @include imp.mq(tab){
+        padding: 0px;
+        margin-top: 120px;
+    }
+    &__title{
+        text-align: center;
+        border-bottom: 3px solid imp.$font_color;
+        border-image: linear-gradient(to right, imp.$font_color 0%,transparent 100%);
+        border-image-slice: 1;
+        padding-bottom: 16px;
+    }
+    &__text{
+        font-size: 16px;
+        line-height: 2;
+        width: 81%;
+        position: relative;
+        margin: 0 auto;
+        margin-top: 148px;
+        @include imp.mq(tab){
+            width: 90%;
+            margin-top: 48px;
+        }
+            &::after{
+            position: absolute;
+            content: '';
+            display: inline-block;
+            width: 500px;
+            height: 500px;
+            background: url(../img/fudewotoru__logo.png)center/cover;
+            right: -200px;
+            bottom: -200px;
+            @include imp.mq(tab){
+                right: -30px;
+                bottom:-100px;
+                width: 300px;
+                height: 300px;
+            }
+        }
+    
+    }
+    
+
+}
+
+// .web-production
+.web-production__kv{
+    margin-top: 200px;
+    width: 100%;
+    height: 520px;
+    background: url(../img/web-production__kv.svg) center/cover;
+    @include imp.mq(tab){
+       display: none;
+    }  
+}
+.web-production__kv-sp{
+    display: none;
+    @include imp.mq(tab){
+        display: block;
+        margin-top: 200px;
+        width: 100%;
+        height: 305px;
+        background: url(../img/web-production__kv-sp.svg) center/cover;
+     }
+    @include imp.mq(sp){
+        height: 220px;      
+     }
+
+}
+
+// process
+.process{
+    padding: 120px 0 120px 0;
+    &__title{   
+       text-align: center;
+       border-bottom: 3px solid imp.$font_color;
+       border-image: linear-gradient(to left, imp.$font_color 0%,transparent 100%);
+       border-image-slice: 1;
+        padding-bottom: 16px;
+        &_option{
+            border: none;
+            padding-top: 120px;
+        }
+        &_writing{
+            border-bottom: 3px solid imp.$font_color;
+            border-image: linear-gradient(to right, imp.$font_color 0%,transparent 100%);
+            border-image-slice: 1;
+        }
+    }
+
+    &__text{
+        margin: 0 auto;
+        margin-top: 40px;
+        width: 81%;
+        line-height: 1.7;
+        @include imp.mq(tab){
+            width: 90%;
+        }        
+    }
+
+    &__item{
+        @include imp.flex();
+        max-width: 1051px;
+        margin: 0 auto;
+        margin-top: 88px; 
+        border: 1px solid imp.$font_color;
+        position: relative;
+        align-items: center;
+        @include imp.mq(tab){
+            flex-direction: column-reverse;
+            max-width: 500px;
+            margin-top: 48px;
+        }
+        &_option{
+            border: 1px solid #ffffff;
+        }
+        &:not(:last-child)::after{
+            content: '';
+            position: absolute;
+            display: inline-block;
+            width: 14px;
+            height:64px;
+            background-color:#1d292fc2;
+            bottom: -65px;
+            left: 50%;
+            transform:translateX(-50px);
+
+        }
+
+        &+&{
+            margin-top: 64px;
+        }
+    }
+
+    &__contents{
+        width: 52%;
+        margin: 0 auto;
+        text-align: left;
+        padding-left: 8px;
+        padding-right: 8px;
+        @include imp.mq(tab){
+            width: 90%;
+            padding-bottom: 24px;
+              }
+            &-title{
+                font-size: 24px;
+                font-weight: bold;
+                @include imp.mq(tab){
+                    font-size: 24px;
+                    margin-top: 32px;
+                      }
+            }
+            &-subtitle{
+                margin-top: 16px;
+                font-size: 20px;
+                font-weight: bold;
+                @include imp.mq(tab){
+                   font-size: 18px;
+                      }
+            }
+            &-text{
+                margin-top: 16px;
+                line-height: 1.7;
+            }
+            &-price{
+                margin-top: 24px;
+                font-size: 16px;
+            }
+        }
+
+        &__img{
+            width: 48%;
+            @include imp.mq(tab){
+               width: 100%;
+                   }
+            
+        }
+}
+
+
+// web-writing
+.web-writing__kv{
+    margin-top: 200px;
+    width: 100%;
+    height: 520px;
+    background: url(../img/web-writing__kv.svg) center/cover;
+    @include imp.mq(tab){
+       display: none;
+    }
+
+
+    
+}
+.web-writing__kv-sp{
+    display: none;
+    @include imp.mq(tab){
+        display: block;
+        margin-top: 200px;
+        width: 100%;
+        height: 305px;
+        background: url(../img/web-writing__kv-sp.svg) center/cover;
+     }
+    @include imp.mq(sp){
+        height: 220px;      
+     }
+
+}
+
+

@@ -1,0 +1,150 @@
+@use "../variable/import" as imp;
+
+/* ===== back-to-top ===== */
+
+.btt {
+    width: 50px;
+    height: 50px;
+    background-color: #000;
+    cursor: pointer;
+    position: fixed;
+    bottom: 20px;
+    right: -100px;
+    z-index: 100;
+    opacity: 0.3;
+    transition: 0.4s;
+    border-radius: 50%;
+  }
+  
+  .btt:hover {
+    opacity: 0.7;
+    transition: 0.3s;
+  }
+  
+  .btt::before {
+    content: "";
+    width: 20px;
+    height: 20px;
+    border-top: 5px solid imp.$base_color;
+    border-right: 5px solid imp.$base_color;
+    transform: rotate(-45deg);
+    position: absolute;
+    top: 20px;
+    left: 15px;
+  }
+  
+  .btt.is-active {
+    right: 20px;
+  }
+
+// jsクラス
+  .js{    
+      &-slide {
+        opacity: 0;
+        transition: 1.6s ease-out;
+        &-roll{
+            transform: rotate(30deg);
+        }
+        &-reverse{
+            transform: rotate(360deg);
+        }
+
+        &-right{
+            transform: translateX(100px);
+        }
+
+        &-left{
+            transform: translateX(-100px)
+        }
+      }
+      
+      &-slide.is-active {
+        transform: translate(0, 0);
+        opacity: 1;
+      }      
+  }
+
+  // ハンバーガーメニュー
+.ham{
+  &__btn{
+      display: none;
+      overflow: hidden;
+      @include imp.mq(tab){
+          display: block;      
+          width: 48px;      
+          height: 48px;      
+          position: absolute;  
+          top: 24px;
+          right: 16px;
+          z-index: 3;
+          border:none; 
+          background-color: #ffffffaa;
+          mix-blend-mode: difference;
+      }
+      
+
+      
+      
+      &.close{
+          .ham__line_top{
+              transform: translate(-48%,13px) rotate(45deg);      
+              width: 30px;
+              transition: transform .3s; 
+          }     
+          .ham__line_mid{
+              transform: translateX(50px);
+              transition:1s; 
+          }     
+          .ham__line_low{
+              transform: translate(-60%,-13px) rotate(-45deg);      
+              width: 30px;
+              transition: transform .3s;    
+          }      
+      }        
+  }
+
+  &__line{
+      width: 30px;      
+      height: 2px;        
+      display: block;      
+      position: absolute;      
+      left: 50%;      
+      transform: translateX(-50%);      
+      background-color: imp.$main_color;
+    &_top{
+        top:10px;
+        left: 22px;
+        width: 26px;
+    }
+    &_mid{
+      top: 50%;
+      transform: translate(-50%,-50%);
+      width: 30px;
+    }
+    &_low{
+        bottom: 10px;
+        left:26px;
+        width: 34px;
+    }
+  }
+}
+
+// 時間差fadein
+
+.fadein{
+  opacity: 0;
+  transition: all 1000ms;
+}
+
+.scrollin{
+  opacity: 1 !important;
+}
+
+.carrier__item--fadein{
+  opacity: 0;
+  transition: 2s;
+}
+.process__item--fadein{
+  opacity: 0;
+  transition: 2s;
+}

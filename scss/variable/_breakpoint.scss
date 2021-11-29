@@ -1,0 +1,16 @@
+// レイアウト幅　式①
+$layout-width-inner: 960px;
+
+// ブレークポイント 式②
+$breakpoints: (
+  "sp": "screen and (max-width: 520px)",
+  "tab": "screen and (max-width: #{$layout-width-inner - 1px})",
+  "pc": "screen and (min-width: #{$layout-width-inner})",
+);
+
+// メディアクエリー　式③
+@mixin mq($breakpoint: sp) {
+    @media #{map-get($breakpoints, $breakpoint)} {
+      @content;
+    }
+  }

@@ -1,0 +1,100 @@
+@use "../variable/import" as imp;
+*{
+    box-sizing: border-box;
+}
+
+body{
+    background-color: imp.$base_color;
+    color: imp.$main_color;
+    color: black;
+    font-family: 'Klee One', cursive;
+    @include imp.mq(tab){
+        font-size: 14px;
+      }
+}
+
+body.loading-noscroll{
+    overflow: hidden;
+}
+
+body.noscroll{
+    @include imp.mq(tab){
+        overflow: hidden;              
+    }
+}
+
+html{
+    scroll-behavior: smooth;
+}
+
+
+img{
+    height: 100%;
+    object-fit: cover;
+}
+
+.section{
+    &__wrapper {
+        width:80.5%;
+        max-width: 1280px;
+        min-width: 900px;
+        margin: 0 auto;
+        // overflow: hidden;
+        @include imp.mq(tab){
+          width: 90%;
+          margin: 0 auto;
+          min-width: 0;
+        }
+    }
+    
+    &__reverse_color{
+        background-color: imp.$main_color;
+        color: #ffffff;
+    }
+
+    &__diagonal{
+        position: relative;
+        &::after{
+            position: absolute;
+            content: '';
+            left: 0;
+            bottom: 18px;
+            width: 100%;
+            height: 100%;
+            background-color:imp.$main_color;
+            transform: skewY(1deg);
+            transform-origin: bottom left;
+            z-index: -1;
+        }
+    }
+}
+
+
+
+.font__bold{
+    font-weight: bold;
+    font-size: 20px;
+    color: imp.$main_color;
+    @include imp.mq(tab){
+        font-size: 16px;
+        }
+}
+
+.link__btn{
+    color: imp.$font_color;
+    border: 1px solid imp.$main_color;
+    background-color:imp.$accent_color;
+    padding: 12px 8%;
+    box-shadow: imp.$box_shadow;
+
+    &:hover{
+        box-shadow: none;
+        transform: translateY(6px);
+    }
+
+    &-explanation{
+        margin-top: 16px;
+        font-size: 14px;
+        text-align: left;
+    }
+}

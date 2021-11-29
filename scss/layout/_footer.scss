@@ -1,0 +1,13 @@
+@use "../variable/import" as imp;
+
+// footer
+.footer{
+    margin-top: 72px;
+    height: 80px;
+    text-align: center;
+    border-top: 1px solid imp.$main_color;
+}
+
+small{
+    line-height: 80px;
+}

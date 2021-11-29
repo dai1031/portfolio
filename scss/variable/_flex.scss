@@ -1,0 +1,4 @@
+@mixin flex($justify: space-between) {
+    justify-content: $justify;   
+    display: flex;
+}

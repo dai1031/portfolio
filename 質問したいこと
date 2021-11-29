@@ -1,0 +1,151 @@
+質問したいこと
+どんなSCSSファイルやSCSSフォルダがあるのか？（命名でよく使うもの）
+変数やmixinの有効な使い方
+
+変数
+ex1)
+$bg_color:#000;
+
+.container{
+    background-color:$bg_color;
+}
+
+ex2)
+変数をセレクタや画像のパス指定の中で利用するにはインターポレーション（補完）#{}を使うことで解決できる。
+
+$selector_name:'.main';
+$img_path:'../img/';
+
+#{$selector_name}{
+    background: url(#{$img_path}bg.png);
+}
+
+--@use--
+SCSSファイルから別のSCSSファイルをインポートできる
+_とscss(拡張子)を省略できる。
+
+(_base.scss)
+*{
+  box-sizing; border-box;  
+}
+html {
+    font-siz:62.5%;
+}
+
+(style.scss)
+@use "base";
+
+(style.css)
+*{
+  box-sizing; border-box;  
+}
+html {
+    font-siz:62.5%;
+}
+
+
+--@forword--
+SCSSファイルから別のSCSSファイルをインポートできる
+_や.scss（拡張子）を省略することができる
+孫SCSSファイルで要憂された変数や@mixinを親SCSSファイルで使いたい時に利用する。
+
+(_variable.scss)
+
+$titleColor: #1abaff ;
+
+(_import.scss)
+@forword "_variable";
+
+(style.css)
+@use"foundation";
+
+.header{
+    background-color:foundation.$titleColor;
+}
+
+
+--@extend--
+スタイルの継承ができる。
+
+(style.scss)
+ex)
+.box{
+    width:250px;
+    height:250px;
+    border:1px solid #000;
+}
+
+.item {
+    @extend .box;
+}
+
+(style.css)
+.box,.item{
+    width: 250px;
+    height:250px;
+    border:1px solid #000;
+}
+
+--@extend専用のプレースホルダーセレクタ--
+接頭辞に%を利用することで、エクステンド専用としてセレクタを作ることができる。
+
+(style.scss)
+%box{
+    width: 250px;
+    height: 250px;
+    border: 1px solid #000;
+}
+
+//%boxはコンパイルされない
+
+.item {
+    @extend :%box;
+}
+
+(style.css)
+.item{
+    width:250px;
+    height:250px;
+    border: 1px solid #000;
+}
+
+--@mixin--
+
+(style.scss)
+ex)
+@mixin flex {
+    display :flex;
+    justify-content:space-between;
+}
+
+.container{
+    @include flex;
+}
+
+(style.css)
+.container{
+    display:flex;
+    justify-content:space-between;
+}
+
+引数を使ったミックスインも作ることができる。
+
+ex)
+(style.scss)
+@mixin flex($justify: center){
+    display: flex;
+    justify-content: $justify;
+}
+
+.container{
+    @include flex(space-between);
+}
+
+(style.css)
+.container {
+    display: flex;
+    justify-content: space-between;
+}
+
+
+

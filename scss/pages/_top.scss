@@ -1,0 +1,550 @@
+@use "../variable/import" as imp;
+
+// kv
+.kv{
+    position: relative;
+    &__copy{
+        position: absolute;
+        top:214px;
+        left: 40px;
+        @include imp.mq(tab){
+           top:50%;
+           left:50%;
+           transform: translate(-50% ,-50%);
+           text-align: center;
+           width: 100%;
+         }
+        }
+    &__text{
+        font-size: 30px;
+        text-align: center;
+        line-height: 1.8;
+        @include imp.mq(tab){
+            font-size: 24px;
+          }
+        @include imp.mq(sp){
+            font-size: 16px;
+          }
+    }
+    &__img{
+        height: 671px;
+        background: url(../img/kv-min.png) center/cover;
+        margin-left: calc((100vw - 1100px) / 2);
+        @include imp.mq(tab){
+          display: none;
+          }
+          &--sp{
+              display: none;
+              @include imp.mq(tab){
+                  display: block;
+                  background: url(../img/kv-sp.jpeg) center/cover;
+                  height: 671px;
+                }
+
+          }
+    }
+    
+    &__title-image{
+        object-fit: contain;
+    }
+}
+
+.kv__title {
+    overflow: hidden;
+    transform: translate(-100%, 0);
+    transition: transform cubic-bezier(0.215, 0.61, 0.355, 1) 1s;
+}
+
+
+.kv__title span {
+    display: block;
+    transform: translate(100%, 0);
+    transition: transform cubic-bezier(0.215, 0.61, 0.355, 1) 1s;
+  }
+  
+  .kv__title.-visible,
+  .kv__title.-visible span{
+    transform: translate(0, 0);
+  }
+  
+  .kv__text{
+    overflow: hidden;
+    transform: translate(-100%, 0);
+    transition: transform cubic-bezier(0.215, 0.61, 0.355, 1) 1s;
+    text-align: center;
+  }
+  
+  .kv__text span{
+    display: block;
+    transform: translate(100%, 0);
+    transition: transform cubic-bezier(0.215, 0.61, 0.355, 1) 1s;
+  }
+  
+  .kv__text.-visible,
+  .kv__text.-visible span{
+    transform: translate(0, 0);
+  }
+
+
+
+// scroll bar 
+.scroll-bar{
+    margin-left: 184px;
+    margin-top: 136px;
+    width: 40px;
+    @include imp.mq(tab){
+        display: none;
+    }
+}
+
+.flash{
+    animation: flash 2s linear infinite;
+  }
+  
+  @keyframes flash {
+    0% {
+      opacity: 1;
+    }
+  
+    50% {
+      opacity: 0;
+    }
+    
+    
+    100% {
+      opacity: 1;
+    }
+  }
+
+// about
+.about{
+    padding: 128px 0 188px 0;
+    text-align: left;
+    overflow: hidden;
+  
+
+    @include imp.mq(tab){
+        padding-bottom: 160px;
+      }
+
+    
+
+    &__img{
+        width: 40%;
+        height: 100%;
+        margin-top: 24px;
+
+   
+        
+        @include imp.mq(tab){
+            text-align: center;
+            width: 100%;
+        }
+            
+          }
+
+
+    &__title{
+        text-align: center;
+    }
+    &__container{
+        @include imp.flex();
+        margin-top: 144px;
+        align-items: center;
+        @include imp.mq(tab){
+           flex-direction: column;
+           margin-top: 96px;
+          }
+    }
+    &__contents{
+        width: 50%;
+        @include imp.mq(tab){
+            width: 90%;
+            margin: 0 auto;
+        }
+    }
+    &__name{
+        font-size: 40px;
+        font-weight: bold;
+        &-sub{
+            margin-top: 8px;
+        }
+    }
+    &__profession{
+        margin-top: 8px;
+    }
+    
+    &__copy{
+        font-size: 32px;
+        margin-top: 24px;
+        @include imp.mq(tab){
+            font-size: 20px;
+        }
+    }
+    
+    &__text{
+        margin-top: 24px;
+        line-height: 1.5;
+    }
+    
+    
+    
+    &__btn{
+        text-align: center;
+        margin-top: 40px;
+        display: block;
+        margin: 0 auto;
+        margin-top: 40px;
+        &__explanation{
+            text-align: center;
+        }
+       
+    }    
+    
+    &__sns{
+        @include imp.flex();
+        width: 100%;
+        padding-top: 16px;
+        padding-bottom: 8px;
+        border-bottom:3px solid imp.$main_color;
+        justify-content: flex-start;
+
+        &-icon{
+            &+&{
+                margin-left: 8px;
+            }
+            img{
+                display: block;
+                width: 40px;
+                min-width: 40px;
+            }
+        }
+    }
+}
+
+
+
+
+
+// service
+.service{
+    overflow: hidden;
+    padding:112px 0 184px 0;
+    @include imp.mq(tab){
+       padding-bottom: 160px;
+      }
+    &__title{
+        text-align: center;
+    }
+    &__copy{
+        font-size: 20px;
+        text-align: center;
+        line-height: 1.5; ;   
+        margin-top: 64px;  
+        @include imp.mq(tab){
+            font-size: 16px;
+            }
+    }
+
+    &__container {
+        @include imp.flex();
+        margin-top: 80px;
+        @include imp.mq(tab){
+           flex-direction: column-reverse;
+           margin-top: 64px;
+          }
+
+        &+&{
+            border-top: 1px solid #ffffff;
+            padding-top: 80px;
+            @include imp.mq(tab){
+                margin-top: 64px;
+              }
+        }
+        
+    }
+
+    &__img{
+        @include imp.mq(tab){
+            text-align: center;
+          }
+    }
+    
+    &__contents{
+        width: 50%;
+        margin: 16px 24px 0 0;
+        text-align: center;
+        margin-right: 24px;
+        @include imp.mq(tab){
+            width: 90%;
+            margin: 0 auto;
+            margin-top: 24px;
+          }
+        &-title{
+            font-size: 40px;
+            @include imp.mq(tab){
+                width: 90%;
+                margin: 0 auto;
+                margin-top: 24px;
+                font-size: 30px;
+              }          
+        }
+        &-subtitle{
+            margin-top: 16px;
+            font-size: 24px;
+            @include imp.mq(tab){
+               font-size: 18px;
+              }
+
+        }
+
+        
+        &-text{
+            margin: 0 auto;
+            margin-top: 16px;
+            line-height: 1.8;
+            width: 75%;
+            text-align: left;
+        } 
+        &-btn{
+            margin-top: 32px;        
+        }   
+
+    }
+
+    &__btn-explanation{
+        text-align: center;
+    }
+}
+
+
+// works
+.works{
+    padding: 113px 0 176px 0;
+    text-align: center;
+    @include imp.mq(tab){
+      padding-bottom: 160px;
+         }
+
+
+    &__copy{
+        margin-top: 64px;
+        font-size: 20px;
+    }
+
+
+}
+
+
+// skill
+.skill{
+    margin-top: 128px;
+
+    &__title {
+        font-size: 24px;
+        text-align: center;
+        font-weight: bold;
+    }
+    
+    &__img  img{
+    width: 100% ;       
+    }
+    
+    &__item{
+
+        &-title{
+            font-size: 24px;
+            border-left: 8px solid #000;
+            padding-left: 11px;
+            margin-top: 24px;
+            text-align: left;
+            font-weight: bold;
+        }
+        &-text{
+            line-height: 1.6;
+            margin-top: 16px;
+            text-align: left;
+        }
+    }
+
+
+    &__grid{
+        display: grid;
+        grid-template-columns: 32% 32% 32%;
+        gap:64px 2%;
+        margin-top: 32px;
+        @include imp.mq(tab){
+            grid-template-columns: 48% 48%;
+            
+          }
+        @include imp.mq(sp){
+            grid-template-columns: 100%;
+            gap: 100px;          
+          }
+
+        
+    }
+    
+}
+
+// product
+.product{
+    margin-top: 176px;
+    &__title{
+        font-size: 24px;
+        text-align: center;
+        font-weight: bold;
+    }
+    &__item{
+        @include imp.flex();
+        margin: 0 auto;
+        margin-top: 32px;
+        padding-bottom: 24px;
+        max-width: 1200px;
+        @include imp.mq(tab){
+            flex-direction: column;
+            max-width: 600px;
+        }
+        &+&{
+            border-top: imp.$section_bottom-line;
+            padding-top: 32px;
+        }
+    }
+    &__img{
+        padding-top: 8px;
+        position: relative;
+        @include imp.mq(tab){
+            width: 100%;
+            margin: 0 auto;
+        }
+        
+        img{
+            object-fit: contain;    
+        }
+        
+        // &::after{
+        //     content: '';
+        //     width: 100%;
+        //     height: 100%;
+        //     top: 16px;
+        //     left: 16px;
+        //     display: inline-block;
+        //     position: absolute;
+        //     background-color: imp.$main_color;
+        //     z-index: -1;
+        // }
+    }
+
+    &__contents{
+        width: 37%;
+        margin-left: 72px;
+        @include imp.mq(tab){
+            width: 90%;
+            margin: 0 auto;
+            margin-top: 48px;
+          }
+        &-title{
+            font-size: 24px;
+        }
+        &-text{
+            margin-top: 32px;  
+            line-height: 1.7; 
+            text-align: left;      
+        }
+        &-info{
+            margin-top: 64px;
+            line-height: 1.7;
+            text-align: left;
+        }
+        &-btn{
+            margin-top: 32px;
+            text-align: center;
+        }       
+    }
+}
+
+// contact
+.contact{
+    padding: 120px 0 104px 0;
+    text-align: center;
+    border-left: 9px solid #ffffff;
+    @include imp.mq(tab){
+      border: none;
+      }
+    &__text{
+        margin: 0 auto;
+        margin-top: 48px;
+        line-height: 1.7;
+        width: 80.1%;
+    }
+
+    &__btn{
+        margin-top: 24px;
+
+
+    }
+
+    &__form-btn{
+        margin-top: 14px;
+
+    }
+
+
+    &-table{
+        width: 80%;
+        margin: 0 auto;
+        margin-top: 64px;
+        @include imp.mq(tab){
+          width: 100%;
+          }
+        
+
+
+        &__row{    
+            &+&{
+                margin-top: 50px;
+            }
+        }
+        
+        &__item{
+            width: 31%;
+            font-size: 20px;
+            vertical-align: middle;
+            @include imp.mq(tab){
+             width: 100%;
+             display: block;
+              }
+        }
+
+        &__body{
+            width: 69%;
+            vertical-align: middle;
+            padding-top: 24px;
+            padding-bottom: 24px;
+            @include imp.mq(tab){
+                width: 100%;
+                display: block;
+            }
+
+        }
+
+        &__text{
+        background-color: #ffffff;
+        height: 48px;
+        width: 100%;
+        }
+
+        &__email{
+        background-color: #ffffff;
+        height: 48px;
+        width: 100%;
+        }
+
+        &__textarea{
+            background-color: #fff;
+            height: 240px;
+            width: 100%;
+        }
+    }
+}
+
